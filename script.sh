@@ -8,15 +8,16 @@ if [ "$pyv"!="Python 3.8.8" ]; then
     echo "Instalando pyenv...";
     curl https://pyenv.run | bash;
 
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc;
+    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc;
+    echo 'eval "$(pyenv init -)"' >> ~/.zshrc;
+
     echo "Instalando python 3.8.8...";
     pyenv install 3.8.8;
 
     echo "Tornando versão 3.8.8 versão global...";
     pyenv global 3.8.8;
 
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc;
-    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc;
-    echo 'eval "$(pyenv init -)"' >> ~/.zshrc;
 else
     echo "Iniciando preparação de arquivos...";
     cd bitmaps
