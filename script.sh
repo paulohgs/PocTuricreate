@@ -13,6 +13,10 @@ if [ "$pyv"!="Python 3.8.8" ]; then
 
     echo "Tornando versão 3.8.8 versão global...";
     pyenv global 3.8.8;
+
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc;
+    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc;
+    echo 'eval "$(pyenv init -)"' >> ~/.zshrc;
 else
     echo "Iniciando preparação de arquivos...";
     cd bitmaps
